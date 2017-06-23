@@ -1,0 +1,23 @@
+{ "id":"com.openmono.chores"
+, "name":"Chores"
+, "author":"Jens Peter Secher"
+, "license":"MIT"
+, "authorwebsite":"http://developer.openmono.com"
+, "headline":"Keep track of tasks."
+, "description":
+  [ "Put your Mono on the fridge and keep track of the small mundane tasks that have to be done once in a while."
+  , "Mono will display an icon for each task and display how long since you or someone else did the task. Touching the number will reset the count."
+  , "You can display up to three tasks on the screen. To replace a task with another task, click on the icon you want to replace, and the row switches to a list of all available icons, which you can now browse through, and click to select."
+  ]
+, "binary":"chores.elf"
+, "sourceurl":"https://github.com/getopenmono/chores"
+, "required":["display","touch"]
+, "screenshots":
+  [ "chores-main.png"
+  , "chores-select-1.png"
+  , "chores-select-2.png"
+  , "chores-select-3.png"
+  ]
+, "cover": "chores-main.png"
+, "kioskapi": 1
+}
