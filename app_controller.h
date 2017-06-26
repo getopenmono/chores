@@ -41,6 +41,7 @@ class MainScene
   TextLabelView counter3;
   TextLabelView unit3;
   TimeUnit calculateTimeSinceLastDone (uint32_t lastDone);
+  void updateOneChore (TextLabelView & counter, TextLabelView & unit, TimeUnit const & tu);
   void handleShow (SceneController const &);
   void handleDismiss ();
 public:

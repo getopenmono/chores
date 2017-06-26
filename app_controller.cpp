@@ -50,7 +50,7 @@ using mono::ui::TextLabelView;
 Chore::Chore (MonoIcon const * icon_)
 :
   icon(icon_),
-  unixLastDone(DateTime::now().toUnixTime())
+  unixLastDone(0)
 {}
 
 struct TimeUnit
@@ -330,17 +330,23 @@ void MainScene::handleDismiss ()
 
 void MainScene::updateTime (Chore const * c1, Chore const * c2, Chore const * c3)
 {
-  TimeUnit tu = calculateTimeSinceLastDone(c1->unixLastDone);
-  counter1.setText(tu.time);
-  unit1.setText(tu.unit);
+  updateOneChore(counter1, unit1, calculateTimeSinceLastDone(c1->unixLastDone));
+  updateOneChore(counter2, unit2, calculateTimeSinceLastDone(c2->unixLastDone));
+  updateOneChore(counter3, unit3, calculateTimeSinceLastDone(c3->unixLastDone));
+}
 
-  tu = calculateTimeSinceLastDone(c2->unixLastDone);
-  counter2.setText(tu.time);
-  unit2.setText(tu.unit);
-
-  tu = calculateTimeSinceLastDone(c3->unixLastDone);
-  counter3.setText(tu.time);
-  unit3.setText(tu.unit);
+void MainScene::updateOneChore (TextLabelView & counter, TextLabelView & unit, TimeUnit const & tu)
+{
+  if (strcmp(tu.unit, "-") == 0)
+  {
+    counter.setText(tu.unit);
+    unit.setText("");
+  }
+  else
+  {
+    counter.setText(tu.time);
+    unit.setText(tu.unit);
+  }
 }
 
 void MainScene::setChores (Chore const * c1, Chore const * c2, Chore const * c3)
@@ -408,6 +414,11 @@ char const * number [] = {
 
 TimeUnit MainScene::calculateTimeSinceLastDone (uint32_t lastDone)
 {
+  if (lastDone == 0)
+  {
+    TimeUnit tu = { 0, "-" };
+    return tu;
+  }
   uint32_t now = DateTime::now().toUnixTime();
   uint32_t diff = now - lastDone;
   // Seconds?
