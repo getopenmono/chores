@@ -1,5 +1,7 @@
 # Chores
 
+[![Build Status](https://travis-ci.org/getopenmono/chores.svg?branch=master)](https://travis-ci.org/getopenmono/chores)
+
 This is a [Mono](http://openmono.com) application for keeping track of the small mundane tasks that have to be done once in a while.
 
 Mono will display an icon for each task and display how long since you or someone else did the task.  Touching the number will reset the count.
