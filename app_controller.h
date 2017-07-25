@@ -4,75 +4,15 @@
 #define app_controller_h
 #include <mono.h>
 #include <vector>
+#include "chore.hpp"
+#include "main-scene.hpp"
+#include "select-scene.hpp"
 
-using mono::DateTime;
-using mono::display::MonoIcon;
-using mono::TouchEvent;
-using mono::TouchResponder;
-using mono::ui::IconView;
-using mono::ui::SceneController;
-using mono::ui::TextLabelView;
-using mono::String;
-
-struct Chore
-{
-  MonoIcon const * icon;
-  uint32_t unixLastDone;
-  Chore (MonoIcon const *);
-};
-
-class AppController;
-
-struct TimeUnit;
-
-class MainScene
-:
-  public SceneController,
-  public TouchResponder
-{
-  AppController * app;
-  IconView icon1;
-  TextLabelView counter1;
-  TextLabelView unit1;
-  IconView icon2;
-  TextLabelView counter2;
-  TextLabelView unit2;
-  IconView icon3;
-  TextLabelView counter3;
-  TextLabelView unit3;
-  TimeUnit calculateTimeSinceLastDone (uint32_t lastDone);
-  void updateOneChore (TextLabelView & counter, TextLabelView & unit, TimeUnit const & tu);
-  void handleShow (SceneController const &);
-  void handleDismiss ();
-public:
-  MainScene (AppController *);
-  void updateTime (Chore const * c1, Chore const * c2, Chore const * c3);
-  void setChores (Chore const * c1, Chore const * c2, Chore const * c3);
-  void respondTouchEnd (TouchEvent &);
-};
-
-class SelectScene
-:
-  public SceneController,
-  public TouchResponder
-{
-  AppController * app;
-  IconView icon1;
-  IconView icon2;
-  IconView icon3;
-  IconView icon4;
-  IconView icon5;
-  IconView icon6;
-  IconView left;
-  IconView right;
-  void handleShow (SceneController const &);
-  void handleDismiss ();
-public:
-  SelectScene (AppController *);
-  void initializeIcons (std::vector<Chore const *> const &);
-  void showPage (std::vector<Chore const *> const &);
-  void respondTouchEnd (TouchEvent &);
-};
+#define BACKGROUND BlackColor
+#define ICON_FOREGROUND AsbestosColor
+#define ICONS_PER_SELECTION_PAGE 6
+#define COUNTER_FOREGROUND CloudsColor
+#define UNIT_FOREGROUND AsbestosColor
 
 class AppController
 :
