@@ -70,6 +70,7 @@ void AppController::monoWillGotoSleep ()
 void AppController::monoWakeFromSleep ()
 {
   selectScene.requestDismiss();
+  statusScene.show();
   mainScene.show();
   mainScene.scheduleRepaint();
   updateTime();
@@ -159,6 +160,7 @@ void AppController::changeChore (size_t selectedChoreIndex)
     return;
   }
   sleeper.start();
+  statusScene.requestDismiss();
   mainScene.requestDismiss();
   selectScene.show();
   selectScene.scheduleRepaint();

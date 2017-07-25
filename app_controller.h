@@ -5,6 +5,7 @@
 #include <mono.h>
 #include <vector>
 #include "chore.hpp"
+#include "status-scene.hpp"
 #include "main-scene.hpp"
 #include "select-scene.hpp"
 
@@ -25,6 +26,7 @@ class AppController
   size_t selectionToReplace;
   std::vector<Chore const *> selection;
 
+  StatusScene statusScene;
   MainScene mainScene;
   SelectScene selectScene;
 
