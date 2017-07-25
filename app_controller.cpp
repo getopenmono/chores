@@ -319,12 +319,12 @@ MainScene::MainScene (AppController * application)
 
 void MainScene::handleShow (SceneController const &)
 {
-  Activate();
+  activate();
 }
 
 void MainScene::handleDismiss ()
 {
-  Deactivate();
+  deactivate();
   hide();
 }
 
@@ -373,10 +373,10 @@ void MainScene::setChores (Chore const * c1, Chore const * c2, Chore const * c3)
   unit3.setText(tu.unit);
 }
 
-void MainScene::RespondTouchEnd (TouchEvent & touch)
+void MainScene::respondTouchEnd (TouchEvent & touch)
 {
-  int x = touch.TouchController->ToScreenCoordsX(touch.Position.X(), 176);
-  int y = touch.TouchController->ToScreenCoordsX(touch.Position.Y(), 220);
+  int x = touch.TouchController->toScreenCoordsX(touch.Position.X(), 176);
+  int y = touch.TouchController->toScreenCoordsX(touch.Position.Y(), 220);
   if (y < 73)
   {
     // First row.
@@ -511,10 +511,10 @@ void SelectScene::initializeIcons (std::vector<Chore const *> const & selection)
   addView(icon6);
 }
 
-void SelectScene::RespondTouchEnd (TouchEvent & touch)
+void SelectScene::respondTouchEnd (TouchEvent & touch)
 {
-  int x = touch.TouchController->ToScreenCoordsX(touch.Position.X(), 176);
-  int y = touch.TouchController->ToScreenCoordsX(touch.Position.Y(), 220);
+  int x = touch.TouchController->toScreenCoordsX(touch.Position.X(), 176);
+  int y = touch.TouchController->toScreenCoordsX(touch.Position.Y(), 220);
   if (x < 88)
   {
     if (y < 64)
@@ -556,11 +556,11 @@ void SelectScene::showPage (std::vector<Chore const *> const & selection)
 
 void SelectScene::handleShow (SceneController const &)
 {
-  Activate();
+  activate();
 }
 
 void SelectScene::handleDismiss ()
 {
-  Deactivate();
+  deactivate();
   hide();
 }

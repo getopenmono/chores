@@ -48,7 +48,7 @@ public:
   MainScene (AppController *);
   void updateTime (Chore const * c1, Chore const * c2, Chore const * c3);
   void setChores (Chore const * c1, Chore const * c2, Chore const * c3);
-  void RespondTouchEnd (TouchEvent &);
+  void respondTouchEnd (TouchEvent &);
 };
 
 class SelectScene
@@ -71,7 +71,7 @@ public:
   SelectScene (AppController *);
   void initializeIcons (std::vector<Chore const *> const &);
   void showPage (std::vector<Chore const *> const &);
-  void RespondTouchEnd (TouchEvent &);
+  void respondTouchEnd (TouchEvent &);
 };
 
 class AppController
