@@ -9,4 +9,4 @@ before_script:
   - docker pull monolit/sdk
 
 script:
-  - docker run --tty --env APP_DIR=/monoapp --volume `pwd`:/monoapp monolit/sdk
+  - docker run --env APP_DIR=/monoapp --volume `pwd`:/monoapp monolit/sdk
