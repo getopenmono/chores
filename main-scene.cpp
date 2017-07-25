@@ -11,12 +11,12 @@ using mono::geo::Point;
 
 MainScene::MainScene (AppController * application)
 :
-  SceneController(Rect(0, 20, 176, 220)),
+  SceneController(Rect(0, 10, 176, 220)),
   app(application),
-  counter1(Rect(75, 20, 70, 64), "?"),
-  unit1(Rect(152, 30, 34, 55), "?"),
-  counter2(Rect(75, 88, 70, 64), "?"),
-  unit2(Rect(152, 98, 34, 55), "?"),
+  counter1(Rect(75, 10, 70, 64), "?"),
+  unit1(Rect(152, 20, 34, 55), "?"),
+  counter2(Rect(75, 83, 70, 64), "?"),
+  unit2(Rect(152, 93, 34, 55), "?"),
   counter3(Rect(75, 156, 70, 64), "?"),
   unit3(Rect(152, 166, 34, 55), "?")
 {
@@ -89,14 +89,14 @@ void MainScene::updateOneChore (TextLabelView & counter, TextLabelView & unit, T
 
 void MainScene::setChores (Chore const * c1, Chore const * c2, Chore const * c3)
 {
-  icon1 = IconView(Point(10, 20), *c1->icon);
+  icon1 = IconView(Point(10, 10), *c1->icon);
   icon1.setBackground(BACKGROUND);
   icon1.setForeground(ICON_FOREGROUND);
   TimeUnit tu = calculateTimeSinceLastDone(c1->unixLastDone);
   counter1.setText(tu.time);
   unit1.setText(tu.unit);
 
-  icon2 = IconView(Point(10, 88), *c2->icon);
+  icon2 = IconView(Point(10, 83), *c2->icon);
   icon2.setBackground(BACKGROUND);
   icon2.setForeground(ICON_FOREGROUND);
   tu = calculateTimeSinceLastDone(c2->unixLastDone);
@@ -115,7 +115,7 @@ void MainScene::respondTouchEnd (TouchEvent & touch)
 {
   int x = touch.TouchController->toScreenCoordsX(touch.Position.X(), 176);
   int y = touch.TouchController->toScreenCoordsX(touch.Position.Y(), 220);
-  if (y < 73)
+  if (y < 78)
   {
     // First row.
     if (x < 69)
@@ -123,7 +123,7 @@ void MainScene::respondTouchEnd (TouchEvent & touch)
     else
       app->timeReset(0);
   }
-  else if (y < 146)
+  else if (y < 151)
   {
     // Second row.
     if (x < 69)

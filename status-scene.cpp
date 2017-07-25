@@ -4,8 +4,8 @@
 
 StatusScene::StatusScene ()
 :
-  SceneController(Rect(0, 0, 176,20)),
-  battery(Rect(viewRect.X2()-23, 5, 18, 10)),
+  SceneController(Rect(0, 0, 176, 10)),
+  battery(Rect(viewRect.X2()-23, 1, 18, 9)),
   chargingTimer(1000, false)
 {
   addView(battery);
