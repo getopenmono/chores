@@ -4,7 +4,7 @@
 
 BatteryView::BatteryView (const Rect &rct)
 :
-	View(rct),
+  View(rct),
   blinker(650, false)
 {
   lastBatteryPercent = 0;
@@ -68,7 +68,7 @@ void BatteryView::repaint()
   drawBounds();
   drawDot();
   checkForCriticalLevel();
-	drawBatteryLevel();
+  drawBatteryLevel();
   if (blinking && lastBatteryPercent <= criticalAmount)
     lastBlinkDrawed = !lastBlinkDrawed;
 }

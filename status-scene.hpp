@@ -15,8 +15,8 @@ class StatusScene
 {
   BatteryView battery;
   mono::Timer chargingTimer;
-	void showCharging ();
-	void showCapacityRemaining ();
+  void showCharging ();
+  void showCapacityRemaining ();
   // Inherited methods.
   void handleDismiss ();
 public:
